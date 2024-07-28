@@ -62,7 +62,6 @@ main .product-description-wrapper {
 main .product-description-wrapper .prd-first-section-wrapper {
   display: flex;
   gap: 10%;
-  width: 80%;
   padding-bottom: 8%;
 }
 main .product-description-wrapper .prd-image {

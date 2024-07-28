@@ -442,7 +442,7 @@ body {
 .banner-section .banner-image {
   width: 40%;
   height: 586px;
-  background-image: url(/guy\ with\ headphone.png);
+  background-image: url(../assets/home/desktop/image/guy\ with\ headphone.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
