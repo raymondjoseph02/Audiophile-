@@ -446,8 +446,8 @@ body {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   border-radius: 8px;
-  background-color: red;
-  background-image: url(./assets/home/desktop/image/guy\ with\ headphone.png);
+  background-color: var(---off-white);
+  background-image: url(/E-commerce/E-commerce/audiophile-ecommerce-website/starter-code/assets/home/desktop/image/guy\ with\ headphone.png);
 }
 .banner-section .banner-textcontent {
   width: 445px;
