@@ -69,6 +69,7 @@ let cartArry = [];
 // const successfullyModal = document.getElementsByClassName('successfull-modal')[0]
 const successfullyModal = document.querySelector('.successfull-modal')
 const main = document.querySelector('main')
+const closeModal = document.getElementById("closeModal")
 
 // successfullyModal.classList.to('modal-toggle')
 
@@ -97,16 +98,20 @@ form.addEventListener("submit", (event) => {
   if (isValid) {
 successfullyModal.setAttribute('id', 'modalToggle')
 main.classList.toggle('opacitytoglleclass')
-window.scrollTo({
-  top:0,
-  behavior:"smooth"
+// body.classList.toggle("position-fixed");
+allInputTypeText.forEach(input =>{
+  input.value = ""
 })
-
-   
-
-
-  }
+  };
+  
 });
+
+closeModal.addEventListener("click", function(){
+  successfullyModal.removeAttribute("id", "modalToggle");
+  main.classList.toggle('opacitytoglleclass')
+  // body.classList.toggle("position-fixed");
+
+})
 function textinputvalidation() {
   let validation = true
 
@@ -254,12 +259,14 @@ async function loadCartFromFirestore() {
   } catch (error) {
     console.error("Error loading cart from Firestore:", error);
   }
-  displayInCart();
   totalPriceInCart();
+  grandCalcUlation()
+  summaryInToTAL();
+
 }
 loadCartFromFirestore();
 
-function displayInCart() {
+/*function displayInCart() {
   let prdInCart = document.getElementById("productInCart");
   prdInCart.innerHTML = "";
 
@@ -299,13 +306,10 @@ function displayInCart() {
     newDiv.appendChild(btnAdd);
     prdInCart.appendChild(nop);
   });
-  summaryInToTAL();
-cartArry.forEach((item)=>{
-  console.log(item);
-})
-}
 
-function totalPriceInCart() {
+}*/
+
+async function totalPriceInCart() {
   let totalPrice = cartArry.reduce((accumulator, currentItem) => {
     return accumulator + currentItem.price;
   }, 0);
@@ -319,9 +323,19 @@ function totalPriceInCart() {
   shippingAmount.innerHTML =  `${dollarSign}${shipping}`
    let grandTotal =  totalPrice + shipping + newVat
   grandTotalAmount.innerHTML = `${dollarSign}${grandTotal.toLocaleString()}`
+  return grandTotal
 }
 
-async function clearCart() {
+async function grandCalcUlation() {
+  const sucGrandPriceEl = document.getElementById("sucGrandPrice")
+  let grandTotal = await totalPriceInCart()
+
+  sucGrandPriceEl.innerHTML = `
+  $${grandTotal.toLocaleString()}
+  `
+}
+
+/*async function clearCart() {
   let userid = localStorage.getItem("uid");
   const subcollectionRef = collection(db, "users", userid, "cart");
   const querySnapshot = await getDocs(subcollectionRef);
@@ -333,8 +347,8 @@ async function clearCart() {
 
   loadCartFromFirestore();
   totalPriceInCart();
-}
-removeAllFromCart.addEventListener("click", clearCart);
+}*/
+/*removeAllFromCart.addEventListener("click", clearCart);
 
 function minusQuantityInCart() {
   cartArry[index].quantity -= 1;
@@ -356,7 +370,7 @@ function minusQuantityInCart() {
 
 function addQuantityInCart() {
   console.log("addQuantityInCart");
-}
+}*/
 
 function summaryInToTAL() {
   let summary = document.getElementById("cartSummary");
@@ -377,8 +391,34 @@ function summaryInToTAL() {
                 <p>x${item.quantity}</p>
               </div>`
   });    
+  successfullyModalTotal()
   }
  
 
-
+  function successfullyModalTotal() {
+    let summary = document.getElementById("items");
+    cartArry.forEach((item)=>{
+      if (item.name > 20) {
+        name = name.slice(0,20)
+      }
+      summary.innerHTML+=`
+                <div class="item-wrapper">
+                <div class="firstsection">
+                  <div class="imgwrapper">
+                    <img src="${item.img}" width="50px" alt="">
+                  </div>
+                  <div class="price">
+                    <h3>${item.name}</h3>
+                    <span>$${item.price.toLocaleString()}</span>
+                  </div>
+                </div>
+                <div class="secondsection">
+                  <p>x${item.quantity}</p>
+                </div>
+              </div>
+                
+                `
+    });    
+    }
+   
 

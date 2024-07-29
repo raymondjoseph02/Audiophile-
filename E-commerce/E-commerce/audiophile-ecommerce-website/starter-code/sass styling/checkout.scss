@@ -132,8 +132,7 @@ main {
   padding-top: 79px;
 }
 .opacitytoglleclass {
-  opacity: 40%;
-  background-color: #000000;
+  opacity: 70%;
 }
 #cart {
   position: relative;
@@ -141,9 +140,7 @@ main {
   .payment-style-wrapper {
     background-color: var(---pure-white);
     width: 377px;
-    position: absolute;
     z-index: 1;
-    top: 127px;
     height: fit-content;
     display: none;
     flex-direction: column;
@@ -300,8 +297,11 @@ main {
     }
   }
   .togglecartclass {
-    transform: translate(-90%);
     display: flex;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50, -50%);
   }
 }
 .global-wrapper {
@@ -702,7 +702,7 @@ form input[type="radio"]:checked + .radioSpan::after {
 }
 
 .successfull-modal {
-  width: 420px;
+  width: 540px;
   height: auto;
   background-color: #ffffff;
   border-radius: 8px;
@@ -728,6 +728,9 @@ form input[type="radio"]:checked + .radioSpan::after {
     .successfully-icon {
       width: 100%;
       height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       .icon {
         background-color: var(---burnt-orange);
         width: 64px;
@@ -749,17 +752,46 @@ form input[type="radio"]:checked + .radioSpan::after {
         }
       }
     }
+  
     .order-container {
       width: 100%;
-      height: 140px;
+      min-height: 140px;
+      max-height: auto;
       border: 1px solid;
       border-radius: 8px;
       display: grid;
       grid-template-columns: 55% 45%;
       // gap: 16px;
       .items {
-        height: 100%;
+        height: auto;
         border-radius: 8px 0px 0px 8px;
+        background-color: #f1f1f1;
+        padding-inline: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding-block: 20px;
+        align-items: center;
+        .item-wrapper{
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          .firstsection{
+            display: flex;
+            gap: 14px;
+            h3{
+              @include m-sub-title2;
+            }
+            span{
+              @include m-sub-title;
+            }
+          }
+          .secondsection{
+            p{
+              @include m-sub-title2;
+            }
+          }
+        }
       }
       .grand-prize {
         height: 100%;
@@ -788,8 +820,11 @@ form input[type="radio"]:checked + .radioSpan::after {
       @include defaultBtn;
       width: 100%;
       background-color: var(---burnt-orange);
-      background-color: red;
 
+    }
+    button:hover{
+      background-color: var(---peach);
+      transition: all .9s ease ;
     }
   }
 }
@@ -810,9 +845,11 @@ form input[type="radio"]:checked + .radioSpan::after {
 }
 #modalToggle{
   display: flex;
-  animation: fade-in 2000ms ease;
-  position: absolute;
-  transform: translatex(50%);
+  animation: all 2000ms ease;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 @keyframes fade-in {
   0% {
@@ -829,14 +866,17 @@ form input[type="radio"]:checked + .radioSpan::after {
 
 @media (max-width: 1199px) {
   .togglecartclass {
-    transform: translate(-10%);
     display: flex;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50, -50%);
   }
-  #cart {
-    .payment-style-wrapper {
-      left: -90%;
-    }
-  }
+  // #cart {
+  //   .payment-style-wrapper {
+  //     left: -90%;
+  //   }
+  // }
   main {
     padding-bottom: 76px;
   }
@@ -853,18 +893,18 @@ form input[type="radio"]:checked + .radioSpan::after {
   }
 }
 @media (max-width: 775px) {
-  #cart {
-    .payment-style-wrapper {
-      left: 50%;
-    }
-  }
+  // #cart {
+  //   .payment-style-wrapper {
+  //     left: 50%;
+  //   }
+  // }
 }
 @media (max-width: 745px) {
-  #cart {
-    .payment-style-wrapper {
-      left: 50%;
-    }
-  }
+  // #cart {
+  //   .payment-style-wrapper {
+  //     left: 50%;
+  //   }
+  // }
   main {
     padding-top: 50px;
   }

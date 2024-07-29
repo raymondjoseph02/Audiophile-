@@ -338,7 +338,7 @@ async function minusQuantityInCart(index) {
   }
 
   // Update Firestore with the current cart items
-  console.log(cartArry);
+  // console.log(cartArry);
 
   await updateCartInFirestore();
 

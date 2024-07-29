@@ -19,8 +19,7 @@ main {
 }
 
 .opacitytoglleclass {
-  opacity: 40%;
-  background-color: #000000;
+  opacity: 70%;
 }
 
 #cart {
@@ -29,9 +28,7 @@ main {
 #cart .payment-style-wrapper {
   background-color: var(---pure-white);
   width: 377px;
-  position: absolute;
   z-index: 1;
-  top: 127px;
   height: -moz-fit-content;
   height: fit-content;
   display: none;
@@ -226,8 +223,11 @@ main {
   background-color: var(---peach);
 }
 #cart .togglecartclass {
-  transform: translate(-90%);
   display: flex;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50, -50%);
 }
 
 .global-wrapper {
@@ -733,7 +733,7 @@ form input[type=radio]:checked + .radioSpan::after {
 }
 
 .successfull-modal {
-  width: 420px;
+  width: 540px;
   height: auto;
   background-color: #ffffff;
   border-radius: 8px;
@@ -758,6 +758,9 @@ form input[type=radio]:checked + .radioSpan::after {
 .successfull-modal .modal-wrapper .successfully-icon {
   width: 100%;
   height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .successfull-modal .modal-wrapper .successfully-icon .icon {
   background-color: var(---burnt-orange);
@@ -781,15 +784,53 @@ form input[type=radio]:checked + .radioSpan::after {
 }
 .successfull-modal .modal-wrapper .order-container {
   width: 100%;
-  height: 140px;
+  min-height: 140px;
+  max-height: auto;
   border: 1px solid;
   border-radius: 8px;
   display: grid;
   grid-template-columns: 55% 45%;
 }
 .successfull-modal .modal-wrapper .order-container .items {
-  height: 100%;
+  height: auto;
   border-radius: 8px 0px 0px 8px;
+  background-color: #f1f1f1;
+  padding-inline: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-block: 20px;
+  align-items: center;
+}
+.successfull-modal .modal-wrapper .order-container .items .item-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.successfull-modal .modal-wrapper .order-container .items .item-wrapper .firstsection {
+  display: flex;
+  gap: 14px;
+}
+.successfull-modal .modal-wrapper .order-container .items .item-wrapper .firstsection h3 {
+  font-size: 0.93rem;
+  letter-spacing: 1px;
+  line-height: 1.56rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.successfull-modal .modal-wrapper .order-container .items .item-wrapper .firstsection span {
+  font-size: 0.93rem;
+  letter-spacing: 1px;
+  line-height: 1.56rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.successfull-modal .modal-wrapper .order-container .items .item-wrapper .secondsection p {
+  font-size: 0.93rem;
+  letter-spacing: 1px;
+  line-height: 1.56rem;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 .successfull-modal .modal-wrapper .order-container .grand-prize {
   height: 100%;
@@ -829,7 +870,10 @@ form input[type=radio]:checked + .radioSpan::after {
   color: var(---pure-white);
   width: 100%;
   background-color: var(---burnt-orange);
-  background-color: red;
+}
+.successfull-modal .modal-btn button:hover {
+  background-color: var(---peach);
+  transition: all 0.9s ease;
 }
 
 .thank-for-order-container {
@@ -858,9 +902,11 @@ form input[type=radio]:checked + .radioSpan::after {
 
 #modalToggle {
   display: flex;
-  animation: fade-in 2000ms ease;
-  position: absolute;
-  transform: translatex(50%);
+  animation: all 2000ms ease;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @keyframes fade-in {
@@ -875,11 +921,11 @@ form input[type=radio]:checked + .radioSpan::after {
 }
 @media (max-width: 1199px) {
   .togglecartclass {
-    transform: translate(-10%);
     display: flex;
-  }
-  #cart .payment-style-wrapper {
-    left: -90%;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50, -50%);
   }
   main {
     padding-bottom: 76px;
@@ -894,15 +940,7 @@ form input[type=radio]:checked + .radioSpan::after {
     width: 90%;
   }
 }
-@media (max-width: 775px) {
-  #cart .payment-style-wrapper {
-    left: 50%;
-  }
-}
 @media (max-width: 745px) {
-  #cart .payment-style-wrapper {
-    left: 50%;
-  }
   main {
     padding-top: 50px;
   }

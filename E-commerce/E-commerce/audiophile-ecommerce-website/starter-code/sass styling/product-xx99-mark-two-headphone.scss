@@ -97,6 +97,14 @@
 body {
   font-family: "Manrope", sans-serif;
 }
+.spinner-wrapper{
+  position: absolute;
+  width: 100%;
+  background-color: var(---peach);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 #circleDiv{
   background-color: var(---burnt-orange);
   width: 20px;
@@ -177,12 +185,25 @@ main {
             border: none;
             background-color: transparent;
           }
+          #totalQuantity{
+            align-self: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 13px;
+            height: 100%;
+
+          }
         }
         #add-cart {
           #add-cart-btn {
             height: 42px;
             @include defaultBtn;
             background-color: var(---burnt-orange);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
           }
           #add-cart-btn:hover {
             background-color: var(---peach);
@@ -193,15 +214,13 @@ main {
     .prd-features-wrapper {
       display: flex;
       flex-direction: column;
-      width: 80%;
-      gap: 10%;
+      gap: 14%;
       justify-content: space-between;
       h3 {
         @include h4;
       }
       .prd-features-content {
         display: flex;
-        gap: 10%;
 
         .features-para {
           width: 635px;

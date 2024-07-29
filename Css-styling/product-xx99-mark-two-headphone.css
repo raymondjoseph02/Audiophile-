@@ -19,6 +19,15 @@ body {
   font-family: "Manrope", sans-serif;
 }
 
+.spinner-wrapper {
+  position: absolute;
+  width: 100%;
+  background-color: var(---peach);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 #circleDiv {
   background-color: var(---burnt-orange);
   width: 20px;
@@ -127,6 +136,14 @@ main .product-description-wrapper .prd-description .cart-btns #incrementing-btn 
   border: none;
   background-color: transparent;
 }
+main .product-description-wrapper .prd-description .cart-btns #incrementing-btn #totalQuantity {
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 13px;
+  height: 100%;
+}
 main .product-description-wrapper .prd-description .cart-btns #add-cart #add-cart-btn {
   height: 42px;
   width: 160px;
@@ -140,6 +157,10 @@ main .product-description-wrapper .prd-description .cart-btns #add-cart #add-car
   border: none;
   color: var(---pure-white);
   background-color: var(---burnt-orange);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 main .product-description-wrapper .prd-description .cart-btns #add-cart #add-cart-btn:hover {
   background-color: var(---peach);
@@ -147,8 +168,7 @@ main .product-description-wrapper .prd-description .cart-btns #add-cart #add-car
 main .product-description-wrapper .prd-features-wrapper {
   display: flex;
   flex-direction: column;
-  width: 80%;
-  gap: 10%;
+  gap: 14%;
   justify-content: space-between;
 }
 main .product-description-wrapper .prd-features-wrapper h3 {
@@ -160,7 +180,6 @@ main .product-description-wrapper .prd-features-wrapper h3 {
 }
 main .product-description-wrapper .prd-features-wrapper .prd-features-content {
   display: flex;
-  gap: 10%;
 }
 main .product-description-wrapper .prd-features-wrapper .prd-features-content .features-para {
   width: 635px;
